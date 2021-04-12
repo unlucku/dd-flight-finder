@@ -90,8 +90,6 @@ public class Airport implements AirportInterface {
      */
     @Override
     public List<Airport> getAirports() {
-        if (airports == null) throw new NoSuchElementException("No flights from " + name);
-
         return airports;
     }
 
