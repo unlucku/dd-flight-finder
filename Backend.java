@@ -15,8 +15,8 @@ import java.util.zip.DataFormatException;
 
 public class Backend implements BackendInterface {
 	
-	private List<AirportInterface> allAirports;
-	private CS400Graph<AirportInterface> graph;
+	private List<Airport> allAirports;
+	private CS400Graph<Airport> graph;
 	private AirportReaderInterface ar;
 	
 	/**
@@ -37,7 +37,7 @@ public class Backend implements BackendInterface {
 		ar = new AirportReader();
 		
 		//adds all airports to the all airport arraylist, and adds all airports to the graph
-		for(AirportInterface p : ar.readDataSet(fr))
+		for(Airport p : ar.readDataSet(fr))
 		{
 		    graph.insertVertex(p);
 		    allAirports.add(p);
@@ -45,7 +45,7 @@ public class Backend implements BackendInterface {
 		    //if there are connected airports to p...
 		    if(p.getAirports()!=null) {
 		    	
-		    	List<AirportInterface> connectedAirports = p.getAirports();
+		    	List<Airport> connectedAirports = p.getAirports();
 		    	
 		    	//... then loop through all of the connected airports, find their distance away,
 		    	//and insert an edge between them, including the distance as the weight
@@ -71,15 +71,15 @@ public class Backend implements BackendInterface {
 	 * @return null if there is no flights between the two locations
 	 */
 	@Override
-	public List<AirportInterface> getShortestFlight(String startingAirportAbreviation, String endingAirportAbreviation){
+	public List<Airport> getShortestFlight(String startingAirportAbreviation, String endingAirportAbreviation){
 		//if there is no availability between the two airports, return null
 		if(!getAvailability(startingAirportAbreviation, endingAirportAbreviation)) {
 			return null;
 		}
 		
 		//take the two abbreviations and find their AirportInterfaces
-		AirportInterface startingPlace = getAirportByName(startingAirportAbreviation);
-		AirportInterface endingPlace = getAirportByName(endingAirportAbreviation);
+		Airport startingPlace = getAirportByName(startingAirportAbreviation);
+		Airport endingPlace = getAirportByName(endingAirportAbreviation);
 
 		//return the list of Airport Interfaces traveled through for the shortest path
 		return graph.shortestPath(startingPlace, endingPlace);
@@ -97,9 +97,9 @@ public class Backend implements BackendInterface {
 	 * @return null if there is no possible way to get to all the airports specified
 	 */
 	@Override
-	public List<AirportInterface> getMultiStopVacation(List<String> allAirportAbreviations){
+	public List<Airport> getMultiStopVacation(List<String> allAirportAbreviations){
 		//create a list of all airports to travel through
-		List<AirportInterface> multistopFlightAirports = new ArrayList<AirportInterface>();
+		List<Airport> multistopFlightAirports = new ArrayList<Airport>();
 		
 		//loops through all of the airports wanted to travel to
 		for(int i = 0; i<allAirportAbreviations.size(); i++) {
@@ -117,8 +117,8 @@ public class Backend implements BackendInterface {
 			}
 		
 			
-			AirportInterface startingPlace = getAirportByName(allAirportAbreviations.get(i));
-			AirportInterface endingPlace = getAirportByName(allAirportAbreviations.get(i+1));
+			Airport startingPlace = getAirportByName(allAirportAbreviations.get(i));
+			Airport endingPlace = getAirportByName(allAirportAbreviations.get(i+1));
 			
 			//keep adding the shortest path between the two airports to the final list of
 			//all airports needed to travel to 
@@ -154,8 +154,8 @@ public class Backend implements BackendInterface {
 	 * @return the airport, return null if no such airport exists
 	 */
 	@Override
-	public AirportInterface getAirportByName(String abreviation) {
-		AirportInterface currentAirport = null;
+	public Airport getAirportByName(String abreviation) {
+		Airport currentAirport = null;
 		
 		//loops through all airports and returns the airport Interface of the abreviation
 		for(int i=0; i<allAirports.size(); i++) {
@@ -180,8 +180,8 @@ public class Backend implements BackendInterface {
 		//set flights automatically to true
 		
 		boolean flights = true;
-		AirportInterface startingPlace = getAirportByName(startingAirportAbreviation);
-		AirportInterface endingPlace = getAirportByName(endingAirportAbreviation);
+		Airport startingPlace = getAirportByName(startingAirportAbreviation);
+		Airport endingPlace = getAirportByName(endingAirportAbreviation);
 		
 		//if you can get the path cost, then there is an available flight
 		try {
