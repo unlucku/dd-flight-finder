@@ -79,7 +79,7 @@ public class AirportReader implements AirportReaderInterface {
     public static void main(String[] args) {
         File pokemonData = new File(System.getProperty("user.dir") + "\\airports.csv");
         
-		try {
+	try {
             FileReader f = new FileReader(pokemonData);
             List<Airport> allAirports = new AirportReader().readDataSet(f);
             
