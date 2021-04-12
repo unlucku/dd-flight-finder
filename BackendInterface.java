@@ -22,7 +22,7 @@ public interface BackendInterface
 	 * @param List of cities starting with current location
 	 * @return List of cities to travel for(This is a list in order to account for possible connecting flights)
 	 */
-	public Flight getMultiStopVacation(List<String> allAirportNames);
+	//public Flight getMultiStopVacation(List<String> allAirportNames);
 
 
 	/**
