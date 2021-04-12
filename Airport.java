@@ -1,3 +1,12 @@
+// --== CS400 File Header Information ==--
+// Name: Brendan Boyle
+// Email: bwboyle@wisc.edu
+// Team: DD
+// Role: Data Wrangler
+// TA: Dan
+// Lecturer: Gary
+// Notes to Grader: N/A
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
