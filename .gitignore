@@ -1,0 +1,9 @@
+*
+!.gitattributes
+!.gitignore
+!readme.md
+!.gitkeep
+!*.java
+!*.txt
+!*/
+/bin/
