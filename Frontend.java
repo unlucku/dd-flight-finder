@@ -18,22 +18,22 @@ public class Frontend {
 	public static Scanner s;
 	public static String[] validOptions = {
 			"Get the shortest path from your city to another",
-			"Get the cheapest path from your city to another",
 			"Get the availibility to see which flights are available between an origin and a destination",
 			"Get a multi stop vacation",
 			"Exit the program"
 	};
+	public static Backend backend;
 	public static void main(String[] args) {
 		try {
 			System.out.println("<===> Welcome To The Flight Finder Application <===>");
 			System.out.println("Please wait while we fetch different flights and related information...");
-			backendObject = new Backend();
+			backend  = new Backend("airports.csv");
 			s = new Scanner(System.in);
 			System.out.println("Successfully loaded flights into the program... Starting input loop");
 			System.out.println();
-			System.out.println("We will now print a list of airports that are supported. Please note you will need this list to enter your airport. (It is not case sensitive)");
+			System.out.println("We will now print a list of airports that are supported. Please note you will need this list to enter your airport. (It is not case sensitive, and you need to enter the abbreviations)");
 			sleep(1000);
-			//backend.getListOfCities();
+			backend.getListOfAirports();
 			System.out.println();
 			programLoop();
 		}
@@ -59,15 +59,12 @@ public class Frontend {
 			processShortest();
 		}
 		else if (response.equals("1")) {
-			processCheapest();
-		}
-		else if (response.equals("2")) {
 			processInStock();
 		}
-		else if (response.equals("3")) {
+		else if (response.equals("2")) {
 			processMultiStop();
 		}
-		else if (response.equals("4")) {
+		else if (response.equals("3")) {
 			processExit();
 		}
 		else {
@@ -86,39 +83,29 @@ public class Frontend {
 	public static void processInStock() {
 		Airport starting = processCityEntry(true);
 		Airport ending = processCityEntry(false);
-		//System.out.println(backend.);
-	}
-
-	public static void processCheapest() {
-		Airport starting = processCityEntry(true);
-		Airport ending = processCityEntry(false);
-		//System.out.println(backend.);
+		System.out.println(backend.getAvailability(starting, ending));
 	}
 
 	public static void processShortest() {
 		Airport starting = processCityEntry(true);
 		Airport ending = processCityEntry(false);
-		//System.out.println(backend.);
+		System.out.println(backend.getShortestFlight(starting, ending));
 	}
 	public static void processMultiStop() {
 		Airport starting = processCityEntry(true);
 		Airport ending = processCityEntry(false);
-		//System.out.println(backend.);
+		//System.out.println(backend.getMultiStopVacation(starting, ending));
 	}
 
 	public static Airport processCityEntry(boolean start)  {
-		System.out.println("Please enter your " + (start ? "Starting " : "Ending ") + "destination below.");
+		System.out.println("Please enter your abbreviation " + (start ? "Starting " : "Ending ") + "destination below.");
 		String response = s.nextLine();
-		/**	Airport airport = backend.getCityByName(response);
+		Airport airport = backend.getAirportByName(response);
 		if (airport == null) {
 			System.out.println("Invalid input! Please try again.");
 			return processCityEntry(start);
 		}
-
-		 *
-
-		return airport*/
-		return null;
+		return airport;
 	}
 	public static void logError(Exception e) {
 		if (e.getLocalizedMessage() != null) {
@@ -147,9 +134,6 @@ public class Frontend {
 		StringWriter errors = new StringWriter();
 		e.printStackTrace(new PrintWriter(errors));
 		return errors.toString();
-	}
-	public static class Backend {
-
 	}
 	public static void sleep(long t) {
 		try {
