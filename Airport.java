@@ -77,11 +77,10 @@ public class Airport implements AirportInterface {
     /**
      * Getter method for Airports connected to this Airport
      * 
-     * @throws NoSuchElementException if there are no Airports connected to this Airport
      * @return List of all Airports connected to this Airport
      */
     @Override
-    public List<Airport> getAirports() throws NoSuchElementException {
+    public List<Airport> getAirports() {
         if (airports == null) throw new NoSuchElementException("No flights from " + name);
 
         return airports;
