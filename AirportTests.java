@@ -16,7 +16,9 @@ import java.util.List;
 
 public class AirportTests {
 
-
+	/**
+	 * Tests getter method for both longitude and latitude
+	 */
     @Test
     public void testAirportGetLongitudeLatitude() {
 
@@ -28,16 +30,20 @@ public class AirportTests {
         	
     		Airport a = airports.get(0);
 
+			// Tests the getter methods
             assertEquals(61.17432028, a.getLatitude());
             assertEquals(-149.9961856, a.getLongitude());
             
     	} catch (Exception e) {
-    		fail("Error reading data");
+    		fail("Error reading data"); // If data fails to load, test fails
     	}
         
         
     }
 
+	/**
+	 * Tests the getAirports() method
+	 */
     @Test
     public void testAirportGetAirports() {
     	
@@ -56,12 +62,15 @@ public class AirportTests {
 			assertEquals(49, airports.get(1).getAirports().size());
             
     	} catch (Exception e) {
-    		fail("Error reading data");
+    		fail("Error reading data"); // If data fails to load, test fails
     	}
 
         
     } 
-    
+	
+	/**
+	 * Tests the findDistance() method
+	 */
     @Test
     public void testAirportFindDistance() {
     	
@@ -79,7 +88,7 @@ public class AirportTests {
     		assertEquals(3410, a.findDistance(airports.get(1)));
             
     	} catch (Exception e) {
-    		fail("Error reading data");
+    		fail("Error reading data"); // If data fails to load, test fails
     	}
 
         
