@@ -20,8 +20,8 @@ CS400Graph.java - Implemented by Michael (Implementaiton of in class code)
 
 Instructions to Build, Run and Test your Project:
 -------------------------------------------------
-<Describe here any instructions that will be needed by course staff to build,
- run, and test this project.>
+make run - This command compiles and runs the project
+make test -  This command runs the test classes for the project
 
 Team Member Contributions:
 --------------------------
