@@ -46,14 +46,14 @@ public class AirportTests {
 
     		List<Airport> airports = new AirportReader().readDataSet(fr); 
 
-    		// No connecting Airports
-            assertEquals(null, airports.get(0).getAirports());
+			// No connecting Airports
+			assertEquals(true, airports.get(0).getAirports().isEmpty());
 
-            // One connecting Airport
-            assertEquals(1, airports.get(4).getAirports().size());
+			// One connecting Airport
+			assertEquals(1, airports.get(4).getAirports().size());
 
-            // Multiple connecting Airports
-            assertEquals(49, airports.get(1).getAirports().size());
+			// Multiple connecting Airports
+			assertEquals(49, airports.get(1).getAirports().size());
             
     	} catch (Exception e) {
     		fail("Error reading data");
