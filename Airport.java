@@ -55,8 +55,7 @@ public class Airport implements AirportInterface {
 
     @Override
     public int findCost(AirportInterface otherAirport) {
-        // TODO Auto-generated method stub
-        return 0;
+        return findDistance(otherAirport)  / 18;
     }
     
 }
