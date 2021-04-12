@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
@@ -75,30 +72,4 @@ public class AirportReader implements AirportReaderInterface {
 		}
 		return stringDataToList;
     }
-
-    public static void main(String[] args) {
-        File pokemonData = new File(System.getProperty("user.dir") + "\\airports.csv");
-        
-	try {
-            FileReader f = new FileReader(pokemonData);
-            List<Airport> allAirports = new AirportReader().readDataSet(f);
-            
-            System.out.println(allAirports.get(0).findDistance(allAirports.get(1)));
-
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        catch (DataFormatException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-    
 }
