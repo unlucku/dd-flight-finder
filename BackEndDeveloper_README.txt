@@ -1,29 +1,29 @@
-BackEndDeveloper README for Project Three (CS400 @ UW Madison)
+BackEndDeveloper README for Project One (CS400 @ UW Madison)
 ========================================================
 
-Name of BackEndDeveloper: <enter your complete name here>
-@wisc.edu Email of BackEndDeveloper: <enter your @wisc.edu email address here>
-Group: <enter your two letter group name here>
-Team: <enter your team color: red, blue, or purple, here>
+Name of BackEndDeveloper: Robbie Peissig
+@wisc.edu Email of BackEndDeveloper: rpeissig@wisc.edu
+Group: DD
+Team: Blue/Red
 
-Files Written by Me:
+Files Written by Me: BackendInterface.java, Backend.java, TestBackend.java
 --------------------
-<List all files that were within this project that were written by you, and
- include a short description of the purpose that each file servers>
+BackendInterface.java - Specifies the interface that will be implemented in the backend
+Backend.java - The backend take information from the Data Wrangler about airports, their 
+location, and distance away from one another in order to add vertices and edges to the 
+CS400Graph.java. After inserting the vertices and edges to the graph, Backend finds
+the shortest path based on distance from one airport to another.
+
+TestBackend.java - Tests the Backend class to ensure that it works properly.
 
 Additional Contributions:
 -------------------------
-<List any additional contributions that you have made toward your team's
- completion of this project.  This might include, but is not limited to things
- like: organizing team communication, creating extra tests or dummy classes,
- assisting team members in any way, etc.>
+I facilitated the communication between the two groups in order to ensure that my
+backend would work for both groups. I also helped Jason organize the data that he
+returned and created a few accessor methods to help the frontend display info to
+their user.
 
 Signature:
 ----------
-<Type out your full name here to certify that all of the files written by you
- that are listed above are the product of your individual development efforts
- for this programming assignment.  List below your name, any exceptions, for 
- example: work reused from a previous semester, code examples taken from any 
- website or book, or anything that was not explicitly authored by you for
- the purpose of completing this assigned CS400 project.>
+Robbie Peissig
  
