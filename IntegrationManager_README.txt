@@ -1,10 +1,10 @@
 IntegrationManager README for Project Three(CS400 @ UW Madison)
 ==============================================================
 
-Name of IntegrationManager: <enter your complete name here>
-@wisc.edu Email of IntegrationManager: <enter your @wisc.edu email address here>
-Group: <enter your two letter group name here>
-Team: <enter your team color: red, blue, or purple, here>
+Name of IntegrationManager: Michael Corbishley
+@wisc.edu Email of IntegrationManager: mcorbishley@wisc.edu
+Group: DD
+Team: Red
 
 Complete List of Files:
 -----------------------
