@@ -34,6 +34,8 @@ public class AirportReader implements AirportReaderInterface {
         // List of Airport objects
         List<Airport> airports = new ArrayList<Airport>();
 
+        //new ArrayList<String>(Arrays.asList(currentRow.get(7).split(" "))).size());
+
         // Creates a new Airport object for every row in the data
         for (int i = 1; i < stringData.length; i++) {
             // List of Strings, with each index being a different column in the data
@@ -42,17 +44,39 @@ public class AirportReader implements AirportReaderInterface {
             // Throws a DataFormatException if there are too many or not enough columns
             if (currentRow.size() != columnNums) 
                 throw new DataFormatException("Invalid number of columns.");
-            
+
             // Otherwise, add a new Airport to the List of Airport objects
             airports.add(new Airport(
-                currentRow.get(1), 
+                currentRow.get(0), 
                 currentRow.get(2), 
                 Double.parseDouble(currentRow.get(5)),
                 Double.parseDouble(currentRow.get(6)) 
             ));
+
         }
 
-        
+        // Generates list of connected airports for every airport in the list of airport objects
+        for (int i = 0; i < airports.size(); i++) {
+
+            // List of airport objects
+            List<Airport> connectedAirports = new ArrayList<>();
+
+            // Names of all connected airports for the current airport object
+            String connectedAirportData = parseAirportData(stringData[i+1]).get(7);
+            
+            // If the current airport object has no connected airports, move to next index
+            if (connectedAirportData.length() == 1) continue;
+
+            // Add airport to list of airport objects if its name is in connectedAirportData
+            for (Airport a : airports) {
+                if (connectedAirportData.contains(a.getName())) connectedAirports.add(a);
+            }
+
+            // List of airport objects set to airports instance field
+            airports.get(i).setAirports(connectedAirports);
+
+        }
+
         return airports;
         
     }
@@ -65,11 +89,25 @@ public class AirportReader implements AirportReaderInterface {
      */
     @Override
     public List<String> parseAirportData(String row) {
-        String[] stringData = row.split(",");
         List<String> stringDataToList = new ArrayList<String>();
-        for(int i = 0; i < stringData.length; i++) {
-			stringDataToList.add(String.valueOf(stringData[i]));
+
+        // Splits stringData into array of columns
+        String[] stringData = row.split(",");
+
+        // Adds first 6 columns to the list
+        for(int i = 0; i < 7; i++) {
+			stringDataToList.add(stringData[i]);
 		}
+
+        // Adds all connected airports to a single string
+        String connectedAirportsString = "";
+        for (int i = 7; i < stringData.length; i++) {
+            connectedAirportsString += stringData[i];
+        }
+        // Adds the single string to the list
+        stringDataToList.add(connectedAirportsString);
+
 		return stringDataToList;
     }
+
 }
