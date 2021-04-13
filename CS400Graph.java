@@ -163,9 +163,10 @@ public class CS400Graph<T> implements GraphADT<T> {
 		Vertex sourceVertex = vertices.get(source);
 		Vertex targetVertex = vertices.get(target);
 		if(sourceVertex == null) return false;
-		for(Edge e : sourceVertex.edgesLeaving)""
+		for(Edge e : sourceVertex.edgesLeaving){
 			if(e.target == targetVertex)
 				return true;
+		}
 		return false;
 	}
 
