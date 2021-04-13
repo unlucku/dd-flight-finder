@@ -193,9 +193,10 @@ public class CS400Graph<T> implements GraphADT<T> {
 		Vertex sourceVertex = vertices.get(source);
 		Vertex targetVertex = vertices.get(target);
 		if(sourceVertex == null || targetVertex == null) throw new IllegalArgumentException("Cannot retrieve weight of edge between vertices that do not exist");
-		for(Edge e : sourceVertex.edgesLeaving)
+		for(Edge e : sourceVertex.edgesLeaving) {
 			if(e.target == targetVertex)
 				return e.weight;
+		}
 		throw new NoSuchElementException("No directed edge found between these vertices");
 	}
 
