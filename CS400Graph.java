@@ -3,15 +3,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
-// --== CS400 File Header Information ==--
-// Name: Michael Corbishley
-// Email: mcorbishley@wisc.edu
-// Team: DD Red
-// Role: Integration Manager
-// TA: Dan
-// Lecturer: Florian
-// Notes to Grader: CS400Graph class with implemented Dijkstra algorithm method and extended Path constructor
 
+//--== CS400 File Header Information ==--
+//Name: Michael Corbishley
+//Email: mcorbishley@wisc.edu
+//Team: DD Red
+//Role: Integration Manager
+//TA: Dan
+//Lecturer: Florian
+//Notes to Grader: CS400Graph class with implemented Dijkstra algorithm method and extended Path constructor
 public class CS400Graph<T> implements GraphADT<T> {
 
 	/**
@@ -171,10 +171,9 @@ public class CS400Graph<T> implements GraphADT<T> {
 		Vertex sourceVertex = vertices.get(source);
 		Vertex targetVertex = vertices.get(target);
 		if(sourceVertex == null) return false;
-		for(Edge e : sourceVertex.edgesLeaving){
+		for(Edge e : sourceVertex.edgesLeaving)
 			if(e.target == targetVertex)
 				return true;
-		}
 		return false;
 	}
 
@@ -188,15 +187,14 @@ public class CS400Graph<T> implements GraphADT<T> {
 	 * @throws NullPointerException if either sourceVertex or targetVertex or both are null
 	 * @throws NoSuchElementException if edge is not in the graph
 	 */
-	 public int getWeight(T source, T target) {
+	public int getWeight(T source, T target) {
 		if(source == null || target == null) throw new NullPointerException("Cannot contain weighted edge adjacent to null data");
 		Vertex sourceVertex = vertices.get(source);
 		Vertex targetVertex = vertices.get(target);
 		if(sourceVertex == null || targetVertex == null) throw new IllegalArgumentException("Cannot retrieve weight of edge between vertices that do not exist");
-		for(Edge e : sourceVertex.edgesLeaving) {
+		for(Edge e : sourceVertex.edgesLeaving)
 			if(e.target == targetVertex)
 				return e.weight;
-		}
 		throw new NoSuchElementException("No directed edge found between these vertices");
 	}
 
@@ -266,7 +264,7 @@ public class CS400Graph<T> implements GraphADT<T> {
 		 */
 		public Path(Path copyPath, Edge extendBy) {
 			this.start = copyPath.start; //copy the start from copyPath
-			this.dataSequence = new LinkedList<>(); //initialize verticies data sequence
+			this.dataSequence = new LinkedList<>(); //initialize vertices data sequence
 			this.distance = (extendBy.weight+copyPath.distance); //copy the distance from copyPath and add the remaining distance of extendBy to it
 			for(int i=0; i<copyPath.dataSequence.size();i++) {
 				this.dataSequence.add(copyPath.dataSequence.get(i)); //adds every piece of data from copyPath.dataSequence to this.dataSequence
@@ -305,11 +303,11 @@ public class CS400Graph<T> implements GraphADT<T> {
 	 */
 	protected Path dijkstrasShortestPath(T start, T end) {
 
-		if (this.vertices.get(start) == null)
+		if (this.vertices.get(start) == null) 
 		{
 			throw new NoSuchElementException("Start vertex not found"); //if there's no start vertex
 		}
-		if (this.vertices.get(end) == null)
+		if (this.vertices.get(end) == null) 
 		{
 			throw new NoSuchElementException("End vertex not found"); //if there's no end vertex
 		}
@@ -323,9 +321,7 @@ public class CS400Graph<T> implements GraphADT<T> {
 				Path newerP = new Path(newP, newP.end.edgesLeaving.get(i)); //creates a newer path that includes newP and the new edges
 				priotrityQueue.add(newerP); //add the newer path to the priotrityQueue to be checked for paths
 			}
-			if (priotrityQueue.peek() == null) {
-				throw new NoSuchElementException("No path found");
-			}
+
 			if (priotrityQueue.peek().end.equals(this.vertices.get(end))) { //if the end of the priotrityQueue is the same as the end node we want
 				Path r = priotrityQueue.poll(); //we get the path from the priotrityQueue and return it
 				return r; //giving us the shortest path from start node to end node
