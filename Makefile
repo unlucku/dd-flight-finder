@@ -6,14 +6,11 @@ compile: Frontend.class
 Frontend.class: Frontend.java Backend.class BackendInterface.class Airport.class AirportInterface.class AirportReader.class AirportReaderInterface.class CS400Graph.class
 	javac -cp .:junit5.jar Frontend.java
 	
-//BackEndDeveloperTests.class: BackEndDeveloperTests.java
-	//javac -cp .:junit5.jar BackEndDeveloperTests.java
-	
 FrontendTests.class: FrontendTests.java
 	javac -cp .:junit5.jar TestFrontend.java
 	
-//AirportTests.class: AirportTests.java
-	//javac -cp .:junit5.jar AirportTests.java
+AirportTests.class: AirportTests.java
+	javac -cp .:junit5.jar AirportTests.java
 	
 Backend.class: Backend.java
 	javac Backend.java
@@ -36,16 +33,13 @@ AirportReaderInterface.class: AirportReaderInterface.java
 CS400Graph.class: CS400Graph.java
 	javac CS400Graph.java
 	
-test: testData testBackend testFrontend
+test: testData testFrontend
 
 testFrontend: TestFrontend.class
 	java -jar junit5.jar -cp . --scan-classpath -n FrontendTests
-
-//testBackend: BackEndDeveloperTests.class
-	//java -jar junit5.jar -cp . --scan-classpath -n BackEndDeveloperTests
-
-//testData: AirportTests.class
-	//java -jar junit5.jar -cp . --scan-classpath -n AirportTests
+	
+testData: AirportTests.class
+	java -jar junit5.jar -cp . --scan-classpath -n AirportTests
 
 clean:
 	$(RM) *.class
