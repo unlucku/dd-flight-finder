@@ -1,10 +1,12 @@
+import java.util.List;
+
 // --== CS400 File Header Information ==--
 // Name: Robbie Peissig
 // Email: rpeissig@wisc.edu
 // Team: DD
 // Lecturer: Gary Dahl
 // Notes to Grader:
-import java.util.List;
+
 public interface BackendInterface
 {
 	/**
@@ -22,7 +24,7 @@ public interface BackendInterface
 	 * @param List of cities starting with current location
 	 * @return List of cities to travel for(This is a list in order to account for possible connecting flights)
 	 */
-	//public Flight getMultiStopVacation(List<String> allAirportNames);
+	public Flight getMultiStopVacation(List<Airport> allAirportNames);
 
 
 	/**

@@ -15,7 +15,7 @@ public class Flight {
 	private String name;
 	private LinkedList<Airport> airports;
 	public Flight(List<Airport> airports) {
-		this.name = "Flight " + counter;
+		this.name = "Flight " + counter++;
 		this.airports = new LinkedList<Airport>();
 		airports.forEach(k -> this.airports.add(k));
 	}

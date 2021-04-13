@@ -1,10 +1,7 @@
 IATA,AIRPORT,CITY,STATE,COUNTRY,LATITUDE,LONGITUDE,CONNECTEDAIRPORT
-ANC,Ted Stevens Anchorage International,Anchorage,AK,USA,61.17432028,-149.9961856,
 ATL,William B Hartsfield-Atlanta Intl,Atlanta,GA,USA,33.64044444,-84.42694444,"BNA, BOS, BWI, CHS, CLE, CMH, DCA, DFW, DTW, EWR, IAD, FLL, IAH, IND, JAX, JFK, LIT, MCI, MCO, MIA, MSY, ORD, ORF, PHL, PHX, PIT, RDU, RIC, RSW, SAT, SDF, SEA, SFO, SJU, SLC, TPA, AGS, BTR, EYW, GRB, GSO, GSP, HSV, JAN, LEX, PNS, SAV, STT, XNA"
-AUS,Austin-Bergstrom International,Austin,TX,USA,30.19453278,-97.66987194,
 BNA,Nashville International,Nashville,TN,USA,36.12447667,-86.67818222,ATL
 BOS,Gen Edw L Logan Intl,Boston,MA,USA,42.3643475,-71.00517917,ATL
-BUF,Buffalo Niagara Intl,Buffalo,NY,USA,42.94052472,-78.73216667,
 BWI,Baltimore-Washington International,Baltimore,MD,USA,39.17540167,-76.66819833,ATL
 CHS,Charleston AFB International,Charleston,SC,USA,32.89864639,-80.04050583,ATL
 CLE,Cleveland-Hopkins Intl,Cleveland,OH,USA,41.41089417,-81.84939667,ATL
@@ -17,8 +14,6 @@ DFW,Dallas-Fort Worth International,Dallas-Fort Worth,TX,USA,32.89595056,-97.037
 DTW,Detroit Metropolitan-Wayne County,Detroit,MI,USA,42.21205889,-83.34883583,ATL
 EWR,Newark Intl,Newark,NJ,USA,40.69249722,-74.16866056,ATL
 FLL,Fort Lauderdale-Hollywood Int'l,Ft. Lauderdale,FL,USA,26.07258333,-80.15275,ATL
-HNL,Honolulu International,Honolulu,HI,USA,21.31869111,-157.9224072,
-HOU,William P X,Houston,TX,USA,29.64541861,-95.27888889,
 IAD,Washington Dulles International,Chantilly,VA,USA,38.94453194,-77.45580972,ATL
 IAH,George Bush Intercontinental,Houston,TX,USA,29.98047222,-95.33972222,ATL
 IND,Indianapolis International,Indianapolis,IN,USA,39.71732917,-86.29438417,ATL
@@ -30,29 +25,19 @@ LGA,LaGuardia,New York,NY,USA,40.77724306,-73.87260917,ATL
 LIT,Adams ,Little Rock,AR,USA,34.72939611,-92.22424556,ABQ
 MCI,Kansas City International,Kansas City,MO,USA,39.29760528,-94.71390556,ATL
 MCO,Orlando International,Orlando,FL,USA,28.42888889,-81.31602778,ATL
-MEM,Memphis International,Memphis,TN,USA,35.04241667,-89.97666667,
 MIA,Miami International,Miami,FL,USA,25.79325,-80.29055556,ATL
-MKE,General Mitchell International,Milwaukee,WI,USA,42.94722222,-87.89658333,
-MSP,Minneapolis-St Paul Intl,Minneapolis,MN,USA,44.88054694,-93.2169225,ANC
+MSP,Minneapolis-St Paul Intl,Minneapolis,MN,USA,44.88054694,-93.2169225,ATL
 MSY,New Orleans International ,New Orleans,LA,USA,29.99338889,-90.25802778,ATL
-OAK,Metropolitan Oakland International,Oakland,CA,USA,37.72129083,-122.2207167,
-OGG,Kahului,Kahului,HI,USA,20.89864972,-156.4304578,ANC
-OKC,Will Rogers World,Oklahoma City,OK,USA,35.39308833,-97.60073389,
-OMA,Eppley Airfield,Omaha,NE,USA,41.30251861,-95.89417306,
-ONT,Ontario International,Ontario,CA,USA,34.056,-117.6011944,
+OGG,Kahului,Kahului,HI,USA,20.89864972,-156.4304578,ATL
 ORD,Chicago O'Hare International,Chicago,IL,USA,41.979595,-87.90446417,ATL
 ORF,Norfolk International,Norfolk,VA,USA,36.89461111,-76.20122222,ATL
-PBI,Palm Beach International,West Palm Beach,FL,USA,26.68316194,-80.09559417,
-PDX,Portland Intl,Portland,OR,USA,45.58872222,-122.5975,ANC
+PDX,Portland Intl,Portland,OR,USA,45.58872222,-122.5975,ATL
 PHL,Philadelphia Intl,Philadelphia,PA,USA,39.87195278,-75.24114083,ATL
 PHX,Phoenix Sky Harbor International,Phoenix,AZ,USA,33.43416667,-112.0080556,"ANC, ATL"
 PIT,Pittsburgh International,Pittsburgh,PA,USA,40.49146583,-80.23287083,ATL
-PVD,Theodore F Green State,Providence,RI,USA,41.72399917,-71.42822111,
 RDU,Raleigh-Durham International,Raleigh,NC,USA,35.87763889,-78.78747222,ATL
 RIC,Richmond International,Richmond,VA,USA,37.50516667,-77.31966667,ATL
-RNO,Reno Tahoe International,Reno,NV,USA,39.49857611,-119.7680647,
 RSW,Southwest Florida International,Ft. Myers,FL,USA,26.53616667,-81.75516667,ATL
-SAN,San Diego International-Lindbergh ,San Diego,CA,USA,32.73355611,-117.1896567,
 SAT,San Antonio International,San Antonio,TX,USA,29.53369444,-98.46977778,ATL
 SDF,Louisville International-Standiford ,Louisville,KY,USA,38.17438889,-85.736,ATL
 SEA,Seattle-Tacoma Intl,Seattle,WA,USA,47.44898194,-122.3093131,"ANC, ATL"
@@ -61,40 +46,24 @@ SJU,Luis Munoz Marin International,San Juan,PR,USA,18.43941667,-66.00183333,ATL
 SLC,Salt Lake City Intl,Salt Lake City,UT,USA,40.78838778,-111.9777731,ATL
 TPA,Tampa International ,Tampa,FL,USA,27.97547222,-82.53325,ATL
 AGS,Bush ,Augusta,GA,USA,33.369955,-81.96449611,ATL
-BET,Bethel,Bethel,AK,USA,60.77977639,-161.8379975,ANC
-BRW,Wiley Post Will Rogers Memorial,Barrow,AK,USA,71.2854475,-156.7660019,ANC
+BET,Bethel,Bethel,AK,USA,60.77977639,-161.8379975,ATL
+BRW,Wiley Post Will Rogers Memorial,Barrow,AK,USA,71.2854475,-156.7660019,ATL
 BTR,Baton Rouge Metropolitan,Baton Rouge,LA,USA,30.53316083,-91.14963444,ATL
-CDV,Merle K (Mudhole) Smith,Cordova,AK,USA,60.49183389,-145.4776503,ANC
-DLG,Dillingham,Dillingham,AK,USA,59.0454125,-158.5033389,ANC
+CDV,Merle K (Mudhole) Smith,Cordova,AK,USA,60.49183389,-145.4776503,ATL
+DLG,Dillingham,Dillingham,AK,USA,59.0454125,-158.5033389,ATL
 EYW,Key West International,Key West,FL,USA,24.55611111,-81.75955556,ATL
-FAI,Fairbanks International,Fairbanks,AK,USA,64.8136775,-147.8596694,ANC
+FAI,Fairbanks International,Fairbanks,AK,USA,64.8136775,-147.8596694,ATL
 GRB,Austin Straubel International,Green Bay,WI,USA,44.48507333,-88.12959,ATL
 GSO,Piedmont Triad International,Greensboro,NC,USA,36.09774694,-79.9372975,ATL
 GSP,Greenville-Spartanburg,Greer,SC,USA,34.89566722,-82.21885833,ATL
 HSV,Huntsville International ,Huntsville,AL,USA,34.6404475,-86.77310944,ATL
 JAN,Jackson International,Jackson,MS,USA,32.31116667,-90.07588889,ATL
-JNU,Juneau International,Juneau,AK,USA,58.35496194,-134.5762764,ANC
+JNU,Juneau International,Juneau,AK,USA,58.35496194,-134.5762764,ATL
 LEX,Blue Grass ,Lexington,KY,USA,38.03697222,-84.60538889,ATL
-LSE,La Crosse Municipal,La Crosse,WI,USA,43.87937972,-91.25653778,
-MGM,Montgomery Regional Apt,Montgomery,AL,USA,32.30064417,-86.39397611,
-MHT,Manchester,Manchester,NH,USA,42.93451639,-71.43705583,
-MSN,Dane County Regional,Madison,WI,USA,43.13985778,-89.33751361,
-OTZ,Ralph Wien Memorial,Kotzebue,AK,USA,66.88467694,-162.5985497,ANC
-PHF,Newport News Williamsburg International,Newport News,VA,USA,37.13189556,-76.4929875,
-PIE,St. Petersburg-Clearwater International,St. Petersburg,FL,USA,27.91076333,-82.68743944,
+OTZ,Ralph Wien Memorial,Kotzebue,AK,USA,66.88467694,-162.5985497,ATL
 PNS,Pensacola Regional,Pensacola,FL,USA,30.47330556,-87.18744444,ATL
-RFD,Greater Rockford,Rockford,IL,USA,42.19536389,-89.09721111,
-RHI,Rhinelander-Oneida County,Rhinelander,WI,USA,45.63119306,-89.46745361,
-RST,Rochester International,Rochester,MN,USA,43.90882639,-92.49798722,
-SAF,Santa Fe Municipal,Santa Fe,NM,USA,35.61677778,-106.0881389,
 SAV,Savannah International,Savannah,GA,USA,32.12758333,-81.20213889,ATL
-SBA,Santa Barbara Municipal,Santa Barbara,CA,USA,34.42621194,-119.8403733,
-SCC,Deadhorse,Deadhorse,AK,USA,70.19475583,-148.4651608,ANC
-SIT,Sitka,Sitka,AK,USA,57.04713806,-135.3615983,ANC
-SPS,Sheppard AFB Wichita Falls Municipal,Wichita Falls,TX,USA,33.98879611,-98.49189333,
+SCC,Deadhorse,Deadhorse,AK,USA,70.19475583,-148.4651608,ATL
+SIT,Sitka,Sitka,AK,USA,57.04713806,-135.3615983,ATL
 STT,Cyril E. King,Charlotte Amalie,VI,USA,18.33730556,-64.97336111,ATL
-TLH,Tallahassee Regional,Tallahassee,FL,USA,30.39652778,-84.35033333,
-TYS,McGhee-Tyson,Knoxville,TN,USA,35.81248722,-83.99285583,
-VEL,Vernal,Vernal,UT,USA,40.44090167,-109.5099203,
 XNA,Northwest Arkansas Regional,Fayetteville Springdale Rogers,AR,USA,36.28186944,-94.30681111,ATL
-YAK,Yakutat,Yakutat,AK,USA,59.50336056,-139.6602261,

@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.zip.DataFormatException;
@@ -34,11 +35,14 @@ public class Backend implements BackendInterface {
 		FileReader fr = new FileReader(filedir);
 		graph = new CS400Graph<>();
 		ar = new AirportReader();
-
+		allAirports = new ArrayList<Airport>();
 		//adds all airports to the all airport arraylist, and adds all airports to the graph
-		for(Airport p : ar.readDataSet(fr))
-		{
-			graph.insertVertex(p);
+		List<Airport> readAirports = ar.readDataSet(fr);
+		readAirports.forEach(k -> graph.insertVertex(k));
+
+
+		for(Airport p : readAirports)		{
+
 			allAirports.add(p);
 
 			//if there are connected airports to p...
@@ -91,34 +95,34 @@ public class Backend implements BackendInterface {
 	 * @return List of cities to travel for(This is a list in order to account for possible connecting flights)
 	 * @return null if there is no possible way to get to all the airports specified
 	 */
-	/**@Override
-	public Flight getMultiStopVacation(List<String> allAirportAbreviations){
+	@Override
+	public Flight getMultiStopVacation(List<Airport> airports){
 		//create a list of all airports to travel through
 		List<Airport> multistopFlightAirports = new ArrayList<Airport>();
 
 		//loops through all of the airports wanted to travel to
-		for(int i = 0; i<allAirportAbreviations.size(); i++) {
+		for(int i = 0; i<airports.size(); i++) {
 
 			//if there is not a next airport, then break the for loop
-			if(allAirportAbreviations.get(i+1) == null) {
+			if(i+1 == airports.size()) {
 				break;
 			}
 
 			//if there is not availability between the two airports, then the trip is not possible
 			// so set the airports to null, the
-			if(!getAvailability(allAirportAbreviations.get(i), allAirportAbreviations.get(i+1))) {
+			if(!getAvailability(airports.get(i), airports.get(i+1))) {
 				multistopFlightAirports = null;
 				break;
 			}
 
 			//keep adding the shortest path between the two airports to the final list of
 			//all airports needed to travel to
-			multistopFlightAirports.addAll(graph.shortestPath(startingPlace, endingPlace));
+			multistopFlightAirports.addAll(graph.shortestPath(airports.get(i), airports.get(i+1)));
 		}
 
 		return new Flight(multistopFlightAirports);
 
-	}**/
+	}
 
 	/**
 	 * This accessor method just returns a string of all airports
@@ -129,7 +133,6 @@ public class Backend implements BackendInterface {
 	public String getListOfAirports() {
 
 		String airports = null;
-
 		//loops through all airports and returns a string of all abreviations and their city
 		for(int i=0; i<allAirports.size(); i++) {
 			airports = airports + "Abbreviation: " + allAirports.get(i).getName() + " City located: " + allAirports.get(i).getCity() + "\n";

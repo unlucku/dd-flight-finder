@@ -163,7 +163,7 @@ public class CS400Graph<T> implements GraphADT<T> {
 		Vertex sourceVertex = vertices.get(source);
 		Vertex targetVertex = vertices.get(target);
 		if(sourceVertex == null) return false;
-		for(Edge e : sourceVertex.edgesLeaving)
+		for(Edge e : sourceVertex.edgesLeaving)""
 			if(e.target == targetVertex)
 				return true;
 		return false;
@@ -295,11 +295,11 @@ public class CS400Graph<T> implements GraphADT<T> {
 	 */
 	protected Path dijkstrasShortestPath(T start, T end) {
 
-		if (this.vertices.get(start) == null) 
+		if (this.vertices.get(start) == null)
 		{
 			throw new NoSuchElementException("Start vertex not found"); //if there's no start vertex
 		}
-		if (this.vertices.get(end) == null) 
+		if (this.vertices.get(end) == null)
 		{
 			throw new NoSuchElementException("End vertex not found"); //if there's no end vertex
 		}
@@ -313,7 +313,9 @@ public class CS400Graph<T> implements GraphADT<T> {
 				Path newerP = new Path(newP, newP.end.edgesLeaving.get(i)); //creates a newer path that includes newP and the new edges
 				priotrityQueue.add(newerP); //add the newer path to the priotrityQueue to be checked for paths
 			}
-
+			if (priotrityQueue.peek() == null) {
+				throw new NoSuchElementException("No path found");
+			}
 			if (priotrityQueue.peek().end.equals(this.vertices.get(end))) { //if the end of the priotrityQueue is the same as the end node we want
 				Path r = priotrityQueue.poll(); //we get the path from the priotrityQueue and return it
 				return r; //giving us the shortest path from start node to end node
