@@ -31,8 +31,8 @@ public class AirportTests {
     		Airport a = airports.get(0);
 
 			// Tests the getter methods
-            assertEquals(61.17432028, a.getLatitude());
-            assertEquals(-149.9961856, a.getLongitude());
+            assertEquals(33.64044444, a.getLatitude());
+            assertEquals(-84.42694444, a.getLongitude());
             
     	} catch (Exception e) {
     		fail("Error reading data"); // If data fails to load, test fails
@@ -52,14 +52,11 @@ public class AirportTests {
 
     		List<Airport> airports = new AirportReader().readDataSet(fr); 
 
-			// No connecting Airports
-			assertEquals(true, airports.get(0).getAirports().isEmpty());
-
-			// One connecting Airport
-			assertEquals(1, airports.get(4).getAirports().size());
+			// One connecting Airports
+			assertEquals(1, airports.get(1).getAirports().size());
 
 			// Multiple connecting Airports
-			assertEquals(49, airports.get(1).getAirports().size());
+			assertEquals(49, airports.get(0).getAirports().size());
             
     	} catch (Exception e) {
     		fail("Error reading data"); // If data fails to load, test fails
@@ -85,7 +82,7 @@ public class AirportTests {
     		assertEquals(0, a.findDistance(a));
 
     		// Distance to other airport
-    		assertEquals(3410, a.findDistance(airports.get(1)));
+    		assertEquals(214, a.findDistance(airports.get(1)));
             
     	} catch (Exception e) {
     		fail("Error reading data"); // If data fails to load, test fails
