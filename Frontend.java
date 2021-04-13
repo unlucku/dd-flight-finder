@@ -106,7 +106,6 @@ public class Frontend {
 				break;
 			}
 		}
-		System.out.println("HOI");
 		System.out.println(backend.getMultiStopVacation(enteredAirports));
 	}
 
