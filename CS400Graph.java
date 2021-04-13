@@ -188,7 +188,7 @@ public class CS400Graph<T> implements GraphADT<T> {
 	 * @throws NullPointerException if either sourceVertex or targetVertex or both are null
 	 * @throws NoSuchElementException if edge is not in the graph
 	 */
-	public int getWeight(T source, T target) {
+	 public int getWeight(T source, T target) {
 		if(source == null || target == null) throw new NullPointerException("Cannot contain weighted edge adjacent to null data");
 		Vertex sourceVertex = vertices.get(source);
 		Vertex targetVertex = vertices.get(target);
