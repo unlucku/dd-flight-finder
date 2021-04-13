@@ -3,6 +3,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
+// --== CS400 File Header Information ==--
+// Name: Michael Corbishley
+// Email: mcorbishley@wisc.edu
+// Team: DD Red
+// Role: Integration Manager
+// TA: Dan
+// Lecturer: Florian
+// Notes to Grader: CS400Graph class with implemented Dijkstra algorithm method and extended Path constructor
 
 public class CS400Graph<T> implements GraphADT<T> {
 
