@@ -1,7 +1,9 @@
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
+
+import org.junit.Test;
 
 //--== CS400 File Header Information ==--
 //Name: Maaz Amin
@@ -25,13 +27,16 @@ public class FrontendTests {
 	@Test
 	public void tryInvalidOptionSelection() {
 		try {
-			Frontend.s = new Scanner(new ByteArrayInputStream("6".getBytes()));
+			Frontend.backend  = new Backend("airports.csv");
+			System.out.println("HERE");
+			Frontend.s = new Scanner(new ByteArrayInputStream("6\n".getBytes()));
 			assertEquals(Frontend.getInput(), "invalid");
 
-			Frontend.s = new Scanner(new ByteArrayInputStream("0".getBytes()));
+			Frontend.s = new Scanner(new ByteArrayInputStream("2\nATL\nBNA".getBytes()));
 			assertEquals(Frontend.getInput(), "valid");
 		}
 		catch(Exception e) {
+			e.printStackTrace();
 			fail("Exception occurred");
 		}
 
@@ -45,11 +50,12 @@ public class FrontendTests {
 	@Test
 	public void testProcessCityEntry() {
 		try {
+			Frontend.backend  = new Backend("airports.csv");
 			Frontend.s = new Scanner(new ByteArrayInputStream("ATL".getBytes()));
 			assertEquals(Frontend.processCityEntry().getName(), "ATL");
 
-			Frontend.s = new Scanner(new ByteArrayInputStream("0\nANC".getBytes()));
-			assertEquals(Frontend.getInput(), "ANC");
+			Frontend.s = new Scanner(new ByteArrayInputStream("0\nBNA".getBytes()));
+			assertEquals(Frontend.processCityEntry().getName(), "BNA");
 		}
 		catch(Exception e) {
 			fail("Exception occurred");
@@ -65,13 +71,15 @@ public class FrontendTests {
 	@Test
 	public void testProcessFlightAvailibility() {
 		try {
+			Frontend.backend  = new Backend("airports.csv");
 			Frontend.s = new Scanner(new ByteArrayInputStream("ATL\nBNA".getBytes()));
 			assertEquals(Frontend.processInStock(), true);
 
-			Frontend.s = new Scanner(new ByteArrayInputStream("DEN\nANC".getBytes()));
+			Frontend.s = new Scanner(new ByteArrayInputStream("DEN\nATL".getBytes()));
 			assertEquals(Frontend.processInStock(), true);
 		}
 		catch(Exception e) {
+			e.printStackTrace();
 			fail("Exception occurred");
 		}
 
