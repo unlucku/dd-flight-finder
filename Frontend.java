@@ -13,7 +13,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
+/**
+ * Frontend class to start the program
+ *
+ */
 public class Frontend {
 	public static Backend backendObject;
 	public static Scanner s;
@@ -44,12 +47,22 @@ public class Frontend {
 			logError(e);
 		}
 	}
+
+	/**
+	 * Input loop
+	 */
 	public static void programLoop() {
 		while(true) {
 			getInput();
 			System.out.println();
 		}
 	}
+
+	/**
+	 * This function processes the main screen inputs, with the
+	 * different options the application has
+	 * @return Valid or invalid for junit tests
+	 */
 	public static String getInput() {
 		System.out.println("Please choose one of the following options (Enter the number corresponding to your selection): ");
 		for (int i = 0; i < validOptions.length; i++) {
@@ -72,26 +85,39 @@ public class Frontend {
 			System.out.println("Invalid input! Please try again.");
 			return "invalid";
 		}
-		return "good";
+		return "valid";
 	}
 
 
+	/**
+	 * Has the logic for program exit
+	 */
 	public static void processExit() {
 		System.out.println("Thank you for using flight finder. Good bye!");
 		System.exit(0);
 	}
 
+	/**
+	 * Has the logic to pull availibility from the backend
+	 */
 	public static void processInStock() {
 		Airport starting = processCityEntry(true);
 		Airport ending = processCityEntry(false);
 		System.out.println(backend.getAvailability(starting, ending) ? "Flight available!" : "Flight not available...");
 	}
 
+	/**
+	 * Has the logic to pull shortest flights from the backend
+	 */
 	public static void processShortest() {
 		Airport starting = processCityEntry(true);
 		Airport ending = processCityEntry(false);
 		System.out.println(backend.getShortestFlight(starting, ending));
 	}
+
+	/**
+	 * Has the logic to pull multi stop vacations from the backend
+	 */
 	public static void processMultiStop() {
 		ArrayList<Airport> enteredAirports = new ArrayList<Airport>();
 		while(true) {
@@ -109,6 +135,11 @@ public class Frontend {
 		System.out.println(backend.getMultiStopVacation(enteredAirports));
 	}
 
+	/**
+	 * Prompts regular airport entry
+	 * @param start Start or End airport
+	 * @return Airport found
+	 */
 	public static Airport processCityEntry(boolean start)  {
 		System.out.println("Please enter your abbreviation for your " + (start ? "starting airport " : "destination ") + "below.");
 		String response = s.nextLine();
@@ -119,6 +150,11 @@ public class Frontend {
 		}
 		return airport;
 	}
+
+	/**
+	 * Prompts airport entry without asking for starting or ending
+	 * @return Airport found
+	 */
 	public static Airport processCityEntry()  {
 		System.out.println("Please enter your abbreviation for your airport below.");
 		String response = s.nextLine();
@@ -129,6 +165,11 @@ public class Frontend {
 		}
 		return airport;
 	}
+
+	/**
+	 * Error handling when the application catches exception
+	 * @param e exception
+	 */
 	public static void logError(Exception e) {
 		if (e.getLocalizedMessage() != null) {
 			System.out.println("The application encountered an error: " + e.getLocalizedMessage());
@@ -152,11 +193,24 @@ public class Frontend {
 		s.close();
 		System.exit(0);
 	}
+
+	/**
+	 * Converts exception stack trace to string
+	 * @param e exception
+	 * @return stack trace
+	 */
 	public static String errorToLog(Exception e) {
 		StringWriter errors = new StringWriter();
 		e.printStackTrace(new PrintWriter(errors));
 		return errors.toString();
 	}
+
+	/**
+	 * Wrapper sleep method to not throw exception,
+	 * since application is single threaded interrupted expcetion should
+	 * not be thrown
+	 * @param t time
+	 */
 	public static void sleep(long t) {
 		try {
 			Thread.sleep(t);
