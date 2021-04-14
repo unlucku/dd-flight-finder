@@ -34,12 +34,12 @@ CS400Graph.class: CS400Graph.java
 	javac CS400Graph.java
 	
 test: testData FrontendTests
-
+	
 FrontendTests: FrontendTests.class
 	java -jar junit5.jar -cp . --scan-classpath -n FrontendTests
 	
 testData: AirportTests.class
 	java -jar junit5.jar -cp . --scan-classpath -n AirportTests
-
+	
 clean:
 	$(RM) *.class
