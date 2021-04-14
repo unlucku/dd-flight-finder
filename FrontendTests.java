@@ -22,6 +22,7 @@ public class FrontendTests {
 	 * properly when selecting an option
 	 *
 	 */
+	@Test
 	public void tryInvalidOptionSelection() {
 		try {
 			Frontend.s = new Scanner(new ByteArrayInputStream("6".getBytes()));
@@ -41,13 +42,14 @@ public class FrontendTests {
 	 * and checks to see if the right one is returned, and also checks to see
 	 * if that the input validation is handled properly
 	 */
+	@Test
 	public void testProcessCityEntry() {
 		try {
 			Frontend.s = new Scanner(new ByteArrayInputStream("ATL".getBytes()));
-			asserEquals(Frontend.processCityEntry().getName(), "ATL");
+			assertEquals(Frontend.processCityEntry().getName(), "ATL");
 
 			Frontend.s = new Scanner(new ByteArrayInputStream("0\nANC".getBytes()));
-			asserEquals(Frontend.getInput(), "ANC");
+			assertEquals(Frontend.getInput(), "ANC");
 		}
 		catch(Exception e) {
 			fail("Exception occurred");
@@ -60,13 +62,14 @@ public class FrontendTests {
 	 * and then calls the backend method to see
 	 * if the flight between them is available
 	 */
-	public void testProcessCityEntry() {
+	@Test
+	public void testProcessFlightAvailibility() {
 		try {
 			Frontend.s = new Scanner(new ByteArrayInputStream("ATL\nBNA".getBytes()));
-			asserEquals(Frontend.processInStock(), true);
+			assertEquals(Frontend.processInStock(), true);
 
 			Frontend.s = new Scanner(new ByteArrayInputStream("DEN\nANC".getBytes()));
-			asserEquals(Frontend.processInStock(), true);
+			assertEquals(Frontend.processInStock(), true);
 		}
 		catch(Exception e) {
 			fail("Exception occurred");

@@ -100,10 +100,12 @@ public class Frontend {
 	/**
 	 * Has the logic to pull availibility from the backend
 	 */
-	public static void processInStock() {
+	public static boolean processInStock() {
 		Airport starting = processCityEntry(true);
 		Airport ending = processCityEntry(false);
-		System.out.println(backend.getAvailability(starting, ending) ? "Flight available!" : "Flight not available...");
+		boolean result = backend.getAvailability(starting, ending);
+		System.out.println(result ? "Flight available!" : "Flight not available...");
+		return result;
 	}
 
 	/**

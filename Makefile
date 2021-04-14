@@ -7,7 +7,7 @@ Frontend.class: Frontend.java Backend.class BackendInterface.class Airport.class
 	javac -cp .:junit5.jar Frontend.java
 	
 FrontendTests.class: FrontendTests.java
-	javac -cp .:junit5.jar TestFrontend.java
+	javac -cp .:junit5.jar FrontendTests.java
 	
 AirportTests.class: AirportTests.java
 	javac -cp .:junit5.jar AirportTests.java
@@ -33,9 +33,9 @@ AirportReaderInterface.class: AirportReaderInterface.java
 CS400Graph.class: CS400Graph.java
 	javac CS400Graph.java
 	
-test: testData testFrontend
+test: testData FrontendTests
 
-testFrontend: TestFrontend.class
+FrontendTests: FrontendTests.class
 	java -jar junit5.jar -cp . --scan-classpath -n FrontendTests
 	
 testData: AirportTests.class
