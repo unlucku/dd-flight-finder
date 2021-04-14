@@ -56,7 +56,7 @@ public class AirportTests {
 			assertEquals(1, airports.get(1).getAirports().size());
 
 			// Multiple connecting Airports
-			assertEquals(49, airports.get(0).getAirports().size());
+			assertEquals(48, airports.get(0).getAirports().size());
             
     	} catch (Exception e) {
     		fail("Error reading data"); // If data fails to load, test fails
